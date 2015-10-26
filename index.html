@@ -44,8 +44,7 @@
         <section>
         <h1>Intro to TileMill</h1>
         <h3>An online cartography tool</h3>
-        <p>
-        Created by Matthew Cengia<br>
+        Presentation by Matthew Cengia<br>
         <a href="http://twitter.com/mattcen">@mattcen</a><br>
         <a href="https://mattcen.github.io/intro-to-tilemill">https://mattcen.github.io/intro-to-tilemill</a><br>
         <br>
@@ -56,7 +55,6 @@
           by Steve Bennett
           (<a href="https://twitter.com/stevage1">@stevage1</a>)
         </small>
-        </p>
         </section>
 
         <section>
@@ -121,7 +119,7 @@
         <img alt="MapBox" src="img/image07.png">
         <img alt="TileMill" src="img/image04.png">
         <h3>What TileMill is not</h3>
-        <p>TileMill doesn't <em>create</em> or <em>edit</em> data; that needs to be done elsewhere; TileMill just displays it</p>
+        TileMill doesn't <em>create</em> or <em>edit</em> data; that needs to be done elsewhere; TileMill just displays it
         <aside class="notes">
         </aside>
         </section>
@@ -213,7 +211,7 @@
 
         <section>
         <h2>Pubgain</h2>
-        <img alt="Pubgain (a rogain crossed with a pub crawl)" width="60%" height="60%" src="img/image26.png">
+        <img alt="Pubgain (a rogain crossed with a pub crawl)" width="70%" height="70%" src="img/image26.png">
         <aside class="notes">
         Steve Bennett was desiging a "pubgain" (a rogain crossed with a pub crawl) for a friend's party.
         </aside>
@@ -221,7 +219,7 @@
 
         <section>
         <h2>Learning Objectives</h2>
-        <p>By the end of this workshop, you will be able to:</p>
+        By the end of this workshop, you will be able to:
         <ul>
           <li>display data (points+labels) on a map.</li>
           <li>create a map style to suit your research.</li>
@@ -234,11 +232,9 @@
 
         <section>
         <h2>TileMill on the web</h2>
-        <p>
         <code><a href="http://cc8.researchmaps.net">http://cc8.researchmaps.net</a></code><br>
         <strong>Username:</strong> <code>tm</code><br>
         <strong>Password:</strong> <code>REDACTED</code><br>
-        </p>
         <aside class="notes">
         </aside>
         </section>
@@ -261,11 +257,8 @@
 
         <section>
         <h2>Lesson: Simple Styling Instructions</h2>
-        <p>
         CartoCSS tells TileMill what to do with your data, and is modelled off CSS.
-        </p>
         <aside class="notes">
-        FIXME: What is the purpose of this slide?
         </aside>
         </section>
 
@@ -510,19 +503,168 @@ text-size: 12;
         </aside>
         </section>
 
+        <section>
+        <h2>HSL makes coordinated colours</h2>
+        <table width="100%">
+          <tr style="font-size: 80%">
+            <td>
+              hsl(20, 50%, <strong><em>20%</em></strong>);<br>
+              hsl(20, 50%, <strong><em>40%</em></strong>);<br>
+              hsl(20, 50%, <strong><em>60%</em></strong>);<br>
+              ...
+            </td>
+            <td>
+              hsl(200, <strong><em>0%</em></strong>, 40%);<br>
+              hsl(200, <strong><em>20%</em></strong>, 40%);<br>
+              hsl(200, <strong><em>40%</em></strong>, 40%);<br>
+              hsl(200, <strong><em>60%</em></strong>, 40%);<br>
+              ...
+            </td>
+            <td>
+              hsl(<strong><em>0</em></strong>, 80%, 60%);<br>
+              hsl(<strong><em>80,</em></strong> 80%, 60%);<br>
+              hsl(<strong><em>120,</em></strong> 80%, 60%);<br>
+              ...
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img alt="HSL luminosity" src="img/image44.png"/>
+            </td>
+            <td>
+              <img alt="HSL saturation" src="img/image46.png"/>
+            </td>
+            <td>
+              <img alt="HSL hue" src="img/image43.png"/>
+            </td>
+          </tr>
+        </table>
+        <aside class="notes">
+        </aside>
+        </section>
+
         <section data-background="#222266">
         <h2>Exercise</h2>
+        Make your map attractive with <em>coordinated</em> colours.
+        <img alt="color-coordinated map" width="50%" height="50%" src="img/image52.png"/>
         <aside class="notes">
         </aside>
         </section>
 
         <section>
+        <h2>Text Labels</h2>
+        <pre width="100%"><code class="css" data-trim>
+text-name: [streetname];            /* Which text to show */
+
+text-face-name: 'DejaVu Sans Bold'; /* Which typeface to use */
+
+text-size: 12;                      /* What font-size, in pixels */
+
+text-halo-radius: 2;                /* Size of text border */
+text-halo-fill: white;              /* Colour of text border */
+
+text-placement:line;                /* Labels along paths */
+</code>
+</pre>
+        <img alt="text label" src="img/text-label.png"/>
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section data-background="#222266">
+        <h2>Exercise</h2>
+        Add text labels to universities
+        <img alt="university text labels" src="img/image55.png"/>
         <aside class="notes">
         </aside>
         </section>
 
         <section>
-        <p>
+        <h2>Sublayers</h2>
+        TileMill can style the same symbols multiple times.<br>
+        To draw a border, draw the outside wide, and the inside narrow<br>
+        <ol>
+          <li><code>::border</code></li>
+          <li>(default sub-layer)</li>
+        </ol><br>
+        <img alt="bigroads border CSS" width="40%" height="40%" src="img/image54.png"/>
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section data-background="#222266">
+        <h2>Exercise</h2>
+        Give #bigroads a black border, yellow fill, and black dashes inside.<br>
+        <img alt="bigroads border map" width="40%" height="40%" src="img/image53.png"/>
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section>
+        <h2>Carpet</h2>
+        A carpet is the equivalent of a halo for lines; it makes the line really stand out against the background.<br>
+        <br>
+        This is done by giving a line a border the same colour as the map background.
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section data-background="#222266">
+        <h2>Exercise</h2>
+        Make a carpet that looks like this:<br>
+        <img alt="bigroads carpet" src="img/image58.png"/>
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section data-background="#222266">
+        <h2>Exercise</h2>
+        Work out what each layer button does.<br>
+        <img alt="layer buttons" width="60%" height="60%" src="img/image57.png"/>
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section data-background="#222266">
+        <h2>Exercise</h2>
+        Add a layer (The Local Government Areas)<br>
+        <a href="http://gis.researchmaps.net/sample/lga.zip">http://gis.researchmaps.net/sample/lga.zip</a><br>
+        <img alt="adding LGA layer" src="img/image59.png"/>
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section data-background="#222266">
+        <h2>Exercise</h2>
+        Add the pubs<br>
+        <a href="http://gis.researchmaps.net/sample/pubs.geojson">http://gis.researchmaps.net/sample/pubs.geojson</a><br>
+        <img alt="adding pubs layer" src="img/image60.png"/>
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section>
+        <h2>Considerations for styling your map</h2>
+        <h3>Map purpose</h3>
+        <ul>
+          <li>What is the map trying to communicate?</li>
+          <li>What is the map's story?</li>
+        </ul>
+        <h3>Map audience</h3>
+        <ul>
+          <li>Who will use the map?</li>
+          <li>What are their needs?</li>
+        </ul>
+        <h3>Map medium</h3>
+        <ul>
+          <li>How will the map be delivered and/or viewed?</li>
+          <li>Considerations for print/screen</li>
+        </ul>
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section>
           <a rel="license"
             href="http://creativecommons.org/licenses/by-sa/4.0/">
             <img alt="Creative Commons License" style="border-width:0"
@@ -548,7 +690,6 @@ text-size: 12;
           <br>
           This presentation written in <a href="https://github.com/hakimel/reveal.js">reveal.js</a><br>
           <a href="http://lab.hakim.se/reveal-js/">They have an example presentation here</a>
-        </p>
         </section>
 
       </div>
