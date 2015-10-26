@@ -120,7 +120,7 @@
         <br>
         <img alt="MapBox" src="img/image07.png">
         <img alt="TileMill" src="img/image04.png">
-        <h3 class="important_text">What TileMill is not</h3>
+        <h3>What TileMill is not</h3>
         <p>TileMill doesn't <em>create</em> or <em>edit</em> data; that needs to be done elsewhere; TileMill just displays it</p>
         <aside class="notes">
         </aside>
@@ -151,8 +151,8 @@
         <h2>Dots on a map</h2>
         <img alt="map dots" src="img/image03.png"><br>
         <br>
-        <img alt="map dots" src="img/image12.png" height="29%" width="29%">
         <h2>Map making</h2>
+        <img alt="map style" src="img/image12.png" height="29%" width="29%">
         <aside class="notes">
         </aside>
         </section>
@@ -330,6 +330,182 @@
         <br>
         <br>
         These are used to apply styles to each map layer and its components.
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section>
+        <h2>Style name must match layer name</h2>
+        <img alt="style name in CartoCSS must match the layer name" src="img/tile-id-css.png"/>
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section data-background="#222266">
+        <h2>Exercise</h2>
+        <table>
+          <tr>
+            <td>Hide the rivers</td>
+            <td><img alt="hidden rivers" width="80%" height="80%" src="img/image39.png"/></td>
+          </tr>
+          <tr>
+            <td>Move the bike paths layer over big roads</td>
+            <td><img alt="bike paths over big roads" width="80%" height="80%" src="img/image34.png"/></td>
+          </tr>
+        </table>
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section>
+        <h2>Quick Tips</h2>
+        <table>
+          <tr><td>Ctrl+Z</td><td>Undo</td></tr>
+          <tr><td>Ctrl+S</td><td>Save</td></tr>
+        </table>
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section>
+        <h2>CartoCSS Syntax</h2>
+        <pre><code class="css" data-trim>
+polygon-fill: blue;     /* Styles end in semicolons */
+#bigroads { ... }       /* Rules have matched braces { } */
+"hello" 'goodbye'       /* Text strings look like this */
+/* has no effect */     /* Comments look like this */
+        </code></pre>
+        <img alt="syntax error" width="100%" height="100%" src="img/image37.png"/>
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section data-background="#222266">
+        <h2>Exercise</h2>
+        How many mistakes can you find?
+        <img alt="syntax errors" width="60%" height="60%" src="img/image38.png"/>
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section>
+        <h2>Types of map data</h2>
+        <table>
+          <tr>
+            <td>Points</td>
+            <td>
+              Single pair of coordinates (lat/long)<br>
+              <em>Eg: villages, murder locations</em>
+            </td>
+          </tr>
+          <tr>
+            <td>Lines</td>
+            <td>
+              Sequence of points in order<br>
+              <em>Eg: roads, voyages</em>
+            </td>
+          </tr>
+          <tr>
+            <td>Polygons</td>
+            <td>
+              Line forming a closed shape<br>
+              <em>Eg: lakes, area of bushfire</em>
+            </td>
+          </tr>
+        </table>
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section data-background="#222266">
+        <h2>Exercise</h2>
+        Identify each layer as either <u>points</u>, <u>lines</u> or <u>polygons</u>.
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section>
+        <h2>Types of cartographic elements</h2>
+        <table>
+          <tr>
+            <td>Markers</td>
+            <td width="60%">
+<pre><code class="css" data-trim>marker-opacity: 0.5;</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>Boundaries/Lines</td>
+            <td width="60%">
+<pre><code class="css" data-trim>line-width: 4;</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>Polygon areas</td>
+            <td width="60%">
+<pre><code class="css" data-trim>polygon-fill: white;</code></pre>
+            </td>
+          </tr>
+          <tr>
+            <td>Labels</td>
+            <td width="60%">
+<pre><code class="css" data-trim>
+text-face-name: '...';
+text-name: '[name]';
+text-size: 12;
+</code></pre></td>
+            </tr>
+          </table>
+        </ul>
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section>
+        <h2>Customizing other elements</h2>
+        Opacity (of anything)<br>
+        Width (of lines)<br>
+        <img alt="opacity and line width" width="60%" height="60%" src="img/image42.png"/>
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section data-background="#222266">
+        <h2>Exercise</h2>
+        Style universities as follows:
+        <ul>
+          <li>White inside</li>
+          <li>Blue border</li>
+          <li>Shown underneath all other elements</li>
+        </ul><br>
+        <img alt="new university style" width="25%" height="25%" src="img/image48.png"/>
+        <aside class="notes">
+        </aside>
+        </section>
+
+        <section>
+        <h2>Colours</h2>
+        Best method: HSL (Hue, saturation, luminosity)<br>
+        <code style="color: hsl(60, 80%, 50%);">hsl(60, 80%, 50%)</code><br>
+        Hue (&#176; around a circle)<br>
+        <span style="color: hsl(0, 100%, 50%);">0&#176;</span>
+        <span style="color: hsl(60, 100%, 50%);">60&#176;</span>
+        <span style="color: hsl(120, 100%, 50%);">120&#176;</span>
+        <span style="color: hsl(180, 100%, 50%);">180&#176;</span>
+        <span style="color: hsl(240, 100%, 50%);">240&#176;</span>
+        <span style="color: hsl(300, 100%, 50%);">300&#176;</span>
+        <span style="color: hsl(360, 100%, 50%);">360&#176;</span>
+        <br>
+        Saturation: 0% = grey, 100% = intense colour<br>
+        Luminosity: 10% = very dark, 50% = full colour, 90% = pale<br>
+        <br>
+        Other methods:<br>
+        <code>
+          <span style="color: #FF0000">#FF0000</span><br>
+          <span style="color: rgb(0, 255, 0)">rgb(0, 255, 0)</span><br>
+          <span style="color: Orange">Orange</span>
+          <span style="color: DarkGrey">DarkGrey</span><br>
+          <span style="color: LightGoldenRodYellow">LightGoldenRodYellow</span>
+        </code>
         <aside class="notes">
         </aside>
         </section>
